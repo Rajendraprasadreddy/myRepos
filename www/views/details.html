@@ -1,0 +1,22 @@
+<ion-view>
+    <ion-header>
+        <div class="row" >
+            <div class="col-10">
+            <button style="font-size: 23px;" ng-click="goBack()"><i class="ion-arrow-left-c"></i></button>
+            </div>
+            <div class="col col-80">
+            
+    <h3>Question Details</h3>
+            </div>
+            </div>
+            </ion-header>
+<ion-content class="has-header" style="background-color:#c3c3c3">
+    
+    <div class="item-devider">
+    </div>
+    <div class="list" style="padding:5px;">
+    <p ng-bind-html="data.body"></p>
+    </div>
+    <ion-infinite-scroll ng-if="!noMoreItemsAvailable" on-infinite="loadMore()" distance="10%"></ion-infinite-scroll>
+    </ion-content>
+</ion-view>

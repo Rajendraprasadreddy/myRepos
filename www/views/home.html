@@ -1,0 +1,29 @@
+<ion-view>
+    <ion-header>
+    <h3 style="padding:5px;color:white;background-color:black">Type your search</h3>
+    </ion-header>
+<ion-content class="has-header" style="background-color:#c3c3c3">
+    <div class="list">
+        
+        <label class="item item-input item-stacked-label">
+    <form name="searchForm" ng-submit="searchthis(searchForm)">
+    <input type="text" placeholder="John" ng-model="searchinput" name="searchinput" style="display:inline;width:90%">
+            <button type="submit" style="display:inline">
+      <i class="ion-search"></i>
+      </button>
+            </form>
+  </label>
+    </div>
+    
+    <div class="item-devider">
+    </div>
+    <div class="list" style="padding:5px;">
+    <div class="list-item" ng-repeat="i in response track by $index" style="background-color:white">
+        <hi ng-click="openThis(i)">{{$index+1}}) {{i.title}}</hi>
+        <p><span>View count:{{i.view_count}}</span><span style="float:right">Author:{{i.owner.display_name}}</span></p>
+        <div class="item-devider" style="background-color:#c3c3c3;padding-bottom:10px;"></div>
+        </div>
+    </div>
+    <ion-infinite-scroll ng-if="!noMoreItemsAvailable" on-infinite="loadMore()" distance="10%"></ion-infinite-scroll>
+    </ion-content>
+</ion-view>
